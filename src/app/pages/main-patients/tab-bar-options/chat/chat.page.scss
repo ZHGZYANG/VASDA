@@ -1,0 +1,30 @@
+#container{
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+
+.message{
+    margin-left: 10px;
+    padding:10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    white-space: pre-wrap;
+    background-color: rgba(255, 255, 255, 0.616);;
+    
+}
+#tail{
+    position: absolute;
+    left: -15px;
+    top: 40px;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    white-space: pre-wrap;
+    background-color: rgb(0, 0, 0);
+}
+
+.time{
+    position:relative;
+    left: 200px;
+}

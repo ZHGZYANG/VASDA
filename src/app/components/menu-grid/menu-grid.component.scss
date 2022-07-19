@@ -1,0 +1,36 @@
+.container {
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 34% 33% 33%;
+    grid-template-rows: 50% 50%;
+    background-color: rgba(253, 253, 253, 0.758);;
+    position: absolute;
+    bottom: 1px;
+    height: 55%;
+    
+  }
+.cell {
+  aspect-ratio: 1;
+  width: 100%;
+  
+  height: 100%;
+  z-index: 1;
+  font-size: 100pt;
+
+  border: .5px solid rgba(0, 0, 0, 1);
+}
+  
+ion-button {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  --color: black;
+  font-size: 10%
+}
+
+#emergency {
+  background-color: rgba(175, 29, 29, 0.466);
+  position: relative;
+  margin-left: 100%;
+}

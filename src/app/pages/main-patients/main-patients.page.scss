@@ -1,0 +1,26 @@
+*{
+  margin: 0;
+}
+ion-header{
+    height: 5%;
+    text-align: center;
+}
+ion-toolbar, ion-title{
+    height: 65%;
+    text-align: center;
+    margin-top: 5pt;
+}
+ion-content{
+    height: 100%;
+}
+
+
+.greeting {
+    margin-right: 50px;
+    padding:15px;
+}
+p {
+    font-size:20pt;
+    padding: 10pt;
+    font-weight: bolder;
+}

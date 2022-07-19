@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="light">
+  <ion-grid id = "container">
+    <ion-row *ngFor="let message of messages" >
+      <ion-col size="10" class="message">
+        <b>Dr. Xu</b><br><br>
+        <span>{{message['Message']}}</span>
+        <div class = "time" text-right>
+          <br>{{message['Date_Sent'] | date:'short'}}
+        </div>
+        <div id="tail"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<app-tab-bar></app-tab-bar>

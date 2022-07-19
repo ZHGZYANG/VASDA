@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>appointments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color = "light">
+  <div id = "appbox" *ngFor="let appointment of appointments">
+    <h1>Date: {{appointment['Date']}} </h1>
+    
+    <p><strong>Location: </strong>{{appointment['Location']}} </p>
+    <p><strong>Doctor: </strong>{{appointment['Doctor']}}</p>
+  </div>
+</ion-content>
+<app-tab-bar></app-tab-bar>

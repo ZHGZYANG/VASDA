@@ -1,0 +1,67 @@
+.wrap{
+  text-align: center;
+
+}
+.likert{
+  list-style: none;
+  margin: auto;
+  width: 100%;
+  padding: 0;
+  text-align: center;
+}
+
+.likert-header{
+  margin-bottom: 10%;
+}
+.surveyWrapper{
+  margin-top: 5%;
+  margin-bottom: 20%;
+  border-bottom: 2px solid;
+}
+.extremes{
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+}
+
+
+
+li{
+  display: inline;
+  margin: 1px;
+
+}
+li input{
+  position: relative;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+
+  opacity: 0;
+}
+li label{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 19px;
+  bottom: 9px;
+}
+
+li label:last-child{
+  left:5px;
+}
+li:last-child{
+  position: relative;
+  right: 5px;
+}
+
+li input[type=radio]:checked{
+  opacity: 1;
+
+} 
+.buttons ion-button{
+  margin: 5%;
+  width: 25%;
+
+}
+

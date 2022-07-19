@@ -1,0 +1,80 @@
+<ion-content color="light">
+  <div id="title">
+    <h1>Patient Registration</h1>
+  </div>
+  <div id="alert-div">
+    <div class="alert" *ngIf="alert">{{alert}}</div>
+  </div>
+  <div id="registration_form">
+    <form [formGroup]="formInputs">
+      <ion-grid id="inputs" style="background-color: transparent;">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-input id="fname-input" placeholder="First Name" type = "text" class="form-control" formControlName="fname"
+              [class.is-invalid]="fname.invalid && fname.touched"></ion-input>
+            </ion-item>
+            <div class="errors" *ngIf="(fname.invalid && fname.touched) || fname.dirty">
+              <small *ngIf="fname.errors?.required" class="text-danger">First name is required.</small>
+            </div>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-input id="lname-input" placeholder="Last Name" type = "text" class="form-control" formControlName="lname"
+              [class.is-invalid]="lname.invalid && lname.touched"></ion-input>
+            </ion-item>
+            <div class="errors" *ngIf="(lname.invalid && lname.touched) || lname.dirty">
+              <small *ngIf="lname.errors?.required" class="text-danger">Last name is required.</small>
+            </div>  
+          </ion-col>
+        </ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input id="email-input" placeholder="Email" type = "text" class="form-control" formControlName="email"
+            [class.is-invalid]="email.invalid && email.touched"></ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="(email.invalid && email.touched) || email.dirty">
+              <small *ngIf="email.errors?.required" class="text-danger">Email is required.</small>
+              <small *ngIf="email.errors?.pattern" class="text-danger">Please provide a valid email address.</small>
+          </div>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input id="username" placeholder="username" type = "text" class="form-control" formControlName="username"
+            [class.is-invalid]="username.invalid && username.touched"></ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="(username.invalid && username.touched) || username.dirty">
+            <small *ngIf="username.errors?.required" class="text-danger">Username is required.</small>
+          </div>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <app-show-hide>
+              <ion-input id="password" placeholder="password" type="text" [type]="'password'" class="form-control" formControlName="password"
+              [class.is-invalid]="password.invalid && password.touched"></ion-input>
+            </app-show-hide>
+          </ion-item>
+          <div class="errors" *ngIf="(password.invalid && password.touched) || password.dirty">
+            <small *ngIf="password.errors?.required" class="text-danger">Password is required.</small>
+          </div>
+        </ion-col>
+        <ion-col>
+            <ion-item>
+              <app-show-hide>
+                <ion-input id="re-password" placeholder="re-enter password" type="text" [type]="'password'" class="form-control" formControlName="re_password"
+                [class.is-invalid]="re_password.invalid && re_password.touched"></ion-input>
+              </app-show-hide>
+            </ion-item>
+            <div class="errors" *ngIf="(re_password.invalid && re_password.touched) || re_password.dirty">
+              <small *ngIf="re_password.errors?.required" class="text-danger">Please re-enter the password</small>
+            </div>
+        </ion-col>
+        <ion-button  id="reg_button" (click)=btnRegister() expand="block" style = "margin: 20px;">Register</ion-button>  
+        <div id = "options">
+          <ion-button  (click)=btnPatient() style="float: left;" fill="clear">Patient Login</ion-button>
+          <ion-button  (click)=btnDoctor() style="float: right;" fill="clear">Doctor Login</ion-button>
+        </div>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

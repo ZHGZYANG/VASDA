@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>tasks</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color = "light">
+  <div id="survey-task" *ngIf="!survey_taken">
+    <ion-item>
+      <ion-label>Take daily survey</ion-label>
+      <ion-button size="default" (click) ='surveyBtn()'>go</ion-button>
+    </ion-item>
+  </div>
+  <div id="upload-task" *ngIf="!upload_done">
+    <ion-item>
+      <ion-label>Upload picture of wound</ion-label>
+      <ion-button size="default" (click) ='uploadBtn()'>upload</ion-button>
+    </ion-item>
+  </div>
+</ion-content>
+<app-tab-bar></app-tab-bar>

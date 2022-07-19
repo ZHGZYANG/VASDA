@@ -1,0 +1,182 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>How are you feeling today?</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="wrap">
+    <h1 class="likert-header">Tell us about your pain today</h1>
+    <form >
+      <label class="statement">What number best describes your pain, on average, in the past week?</label>
+      <div class="surveyWrapper">
+        <ul class='likert'>
+          <li>
+            <label>0</label>
+            <input type="radio" value="0" name="pain">
+          </li>
+          <li>
+            <label>1</label>
+            <input type="radio" value="1" name="pain">
+          </li>
+          <li>
+            <label>2</label>
+            <input type="radio" value="2" name="pain">
+          </li>
+          <li>
+            <label>3</label>
+            <input type="radio" value="3" name="pain">
+          </li>
+          <li>
+            <label>4</label>
+            <input type="radio" value="4" name="pain">
+          </li>
+          <li>
+            <label>5</label>
+            <input type="radio" value="5" name="pain">
+          </li>
+          <li>
+            <label>6</label>
+            <input type="radio" value="6" name="pain">
+          </li>
+          <li>
+            <label>7</label>
+            <input type="radio" value="7" name="pain">
+          </li>
+          <li>
+            <label>8</label>
+            <input type="radio" value="8" name="pain">
+          </li>
+          <li>
+            <label>9</label>
+            <input type="radio" value="9" name="pain">
+          </li>
+          <li>
+            <label>10</label>
+            <input type="radio" value="10" name="pain">
+            
+          </li>
+        </ul>
+        <div class="extremes">
+          <span>No Pain</span>
+          <span>Pain as bad as<br>you can imagine</span>
+        </div>
+      </div>
+
+      <label class="statement">What number best describes how, during the past week, pain has interfered with your enjoyment of life?</label>
+      <div class="surveyWrapper">
+        <ul class='likert'>
+          <li>
+            <label>0</label>
+            <input type="radio" value="0" name="enjoyment">
+          </li>
+          <li>
+            <label>1</label>
+            <input type="radio" value="1" name="enjoyment">
+          </li>
+          <li>
+            <label>2</label>
+            <input type="radio" value="2" name="enjoyment">
+          </li>
+          <li>
+            <label>3</label>
+            <input type="radio" value="3" name="enjoyment">
+          </li>
+          <li>
+            <label>4</label>
+            <input type="radio" value="4" name="enjoyment">
+          </li>
+          <li>
+            <label>5</label>
+            <input type="radio" value="5" name="enjoyment">
+          </li>
+          <li>
+            <label>6</label>
+            <input type="radio" value="6" name="enjoyment">
+          </li>
+          <li>
+            <label>7</label>
+            <input type="radio" value="7" name="enjoyment">
+          </li>
+          <li>
+            <label>8</label>
+            <input type="radio" value="8" name="enjoyment">
+          </li>
+          <li>
+            <label>9</label>
+            <input type="radio" value="9" name="enjoyment">
+          </li>
+          <li>
+            <label>10</label>
+            <input type="radio" value="10" name="enjoyment">
+            
+          </li>
+        </ul>
+        <div class="extremes">
+          <span>Does not<br>interfere</span>
+          <span>Completely<br>Interferes</span>
+        </div>
+      </div>
+
+      <label class="statement">What number best describes how, during the past week, pain has interfered with your general activity?</label>
+      <div class="surveyWrapper">
+        <ul class='likert'>
+          <li>
+            <label>0</label>
+            <input type="radio" value="0" name="general">
+          </li>
+          <li>
+            <label>1</label>
+            <input type="radio" value="1" name="general">
+          </li>
+          <li>
+            <label>2</label>
+            <input type="radio" value="2" name="general">
+          </li>
+          <li>
+            <label>3</label>
+            <input type="radio" value="3" name="general">
+          </li>
+          <li>
+            <label>4</label>
+            <input type="radio" value="4" name="general">
+          </li>
+          <li>
+            <label>5</label>
+            <input type="radio" value="5" name="general">
+          </li>
+          <li>
+            <label>6</label>
+            <input type="radio" value="6" name="general">
+          </li>
+          <li>
+            <label>7</label>
+            <input type="radio" value="7" name="general">
+          </li>
+          <li>
+            <label>8</label>
+            <input type="radio" value="8" name="general">
+          </li>
+          <li>
+            <label>9</label>
+            <input type="radio" value="9" name="general">
+          </li>
+          <li>
+            <label>10</label>
+            <input type="radio" value="10" name="general">
+            
+          </li>
+        </ul>
+        <div class="extremes">
+          <span>Does not<br>interfere</span>
+          <span>Completely<br>Interferes</span>
+        </div>
+      </div>
+      
+      <div class="buttons">
+        <ion-button color="light" class="clear" (click)=clear()>Clear</ion-button>
+        <ion-button class="submit" (click)=onSubmit()>Submit</ion-button>
+      </div>
+    </form>
+  </div>
+</ion-content>

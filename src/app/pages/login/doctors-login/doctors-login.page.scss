@@ -1,0 +1,53 @@
+
+h1{
+  font-size: 200%;
+  margin: auto;
+  width: fit-content;
+}
+#outter-form{
+  width: fit-content;
+  margin: auto;
+  margin-top: 50px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
+}
+ion-item{
+  margin-top:25px;
+  margin-right: 17px;
+  margin-left: 17px;
+  border: .5px solid rgba(0, 0, 0, 0.055);
+}
+
+#options {
+  width: 400px;
+  margin-top: 25px;
+  display: inline-block;
+}
+.alert {
+  width: fit-content;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  padding: 10px;
+  margin-left: 50%;
+  text-align: center;
+  margin-top: 60px;
+}
+.errors {
+  float: left;
+  color:#ba3939;
+  background-color: transparent;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+.loginBtn {
+  margin: top 15px;
+}
+
+
