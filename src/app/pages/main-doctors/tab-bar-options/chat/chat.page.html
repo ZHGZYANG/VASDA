@@ -1,0 +1,52 @@
+<ion-header>
+  <div>
+    <ion-accordion-group id="state">
+      <ion-accordion>
+        <ion-item slot ="header">
+          <p><strong>{{currentUser}}</strong></p>
+        </ion-item>
+        <ion-list slot="content" *ngFor="let patient of patients">
+          <ion-item id="name">
+            <ion-button id="nameBtn"  expand="full" fill="clear" color="dark" (click)=selectUser(patient) (click)=closeAccordions()>{{patient['fName']}} {{patient['lName']}}</ion-button>
+          </ion-item>
+        </ion-list>
+      </ion-accordion>
+    </ion-accordion-group>
+   </div>
+</ion-header>
+
+<ion-content color="light">
+
+
+ <ion-grid id = "inbox">
+  <ion-row *ngFor="let message of messages" >
+    <ion-col size="10" class="message">
+      <span>{{message['message']}}</span>
+      <div class = "time" text-right>
+        <br>{{message['createdAt'] | date:'short'}}
+      </div>
+      <div id = "tail"></div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>
+ 
+<ion-toolbar slot="fixed" style="bottom: 0;">
+  <ion-row id = "row">
+    <ion-col size="10">
+      <textarea autosize maxRow="5" [(ngModel)]="newMsg" class="message-input"></textarea>
+    </ion-col>
+    <ion-col size="2">
+      <ion-button expand="block" fill="clear" [disabled]="newMsg ===''" [disabled]="currentUser==='Select a Patient'" class="msg-btn" (click)=sendMsg()>
+        <ion-icon  name="send" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>
+<app-tab-bar></app-tab-bar>
+
+
+
+

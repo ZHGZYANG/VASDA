@@ -2,6 +2,9 @@
   text-align: center;
 
 }
+img{
+  transform: scale(.1);
+}
 .likert{
   list-style: none;
   margin: auto;
@@ -17,6 +20,7 @@
   margin-top: 5%;
   margin-bottom: 20%;
   border-bottom: 2px solid;
+
 }
 .extremes{
   display: flex;
@@ -29,6 +33,7 @@
 li{
   display: inline;
   margin: 1px;
+  position:relative;
 
 }
 li input{

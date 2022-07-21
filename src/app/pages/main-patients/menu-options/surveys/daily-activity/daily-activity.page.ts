@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-daily-activity',
@@ -6,34 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./daily-activity.page.scss'],
 })
 export class DailyActivityPage implements OnInit {
-  dailyActivity = {
-    changingLower:"",
-    bathing:"",
-    toileting:"",
-    changingUpper:"",
-    grooming:"",
-    eating:""
-  }
-  inputs = document.getElementsByTagName('input')
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  dailyActivity = new FormGroup({
+    changingLower: new FormControl(''),
+    bathing:new FormControl(''),
+    toileting:new FormControl(''),
+    changingUpper:new FormControl(''),
+    grooming:new FormControl(''),
+    eating:new FormControl('')
+  })
+
   clear = function(){
-    for(var i=0;i<this.inputs.length;i++){
-      this.inputs[i].checked=false
-    }
+    this.dailyActivity.reset()
   };
 
   onSubmit(): void{
-    this.dailyActivity.changingLower = document.querySelector('input[name=changingLower]:checked')['value']
-    this.dailyActivity.bathing = document.querySelector('input[name=bathing]:checked')['value']
-    this.dailyActivity.toileting = document.querySelector('input[name=toileting]:checked')['value']
-    this.dailyActivity.changingUpper = document.querySelector('input[name=changingUpper]:checked')['value']
-    this.dailyActivity.grooming = document.querySelector('input[name=grooming]:checked')['value']
-    this.dailyActivity.eating = document.querySelector('input[name=eating]:checked')['value']
+    console.log(this.dailyActivity.value)
     this.clear()
-    console.log(this.dailyActivity)
   }
 }

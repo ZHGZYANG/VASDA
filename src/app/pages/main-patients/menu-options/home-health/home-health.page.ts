@@ -18,13 +18,5 @@ export class HomeHealthPage implements OnInit {
 
   ngOnInit() {
     console.log(this.user)
-    this.getAppointments()
-  }
-
-  getAppointments():void{
-    this.userService.getAppointments(this.user).subscribe(
-      (response) => this.appointments = response['Visits'],
-      (error:any) => console.log(error),
-    );
   }
 }

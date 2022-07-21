@@ -1,0 +1,38 @@
+ion-content{
+    text-align: center;
+}
+ion-title img{
+  transform: scale(.1);
+}
+h1{
+    font-size:20pt;
+    padding: 10pt;
+    font-weight: bolder;
+}
+.container {
+    margin: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 34% 33% 33%;
+    grid-template-rows: 50% 50%;
+    background-color: rgba(253, 253, 253, 0.758);;
+    position: absolute;
+    top: 15%;
+    height: 55%;
+    
+  }
+.cell {
+  aspect-ratio: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  font-size: 100pt;
+}
+  
+ion-button {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  --color: black;
+  font-size: 10%
+}

@@ -9,18 +9,6 @@ const routes: Routes = [
     component: MainPatientsPage
   },
   {
-    path: 'question1',
-    loadChildren: () => import('./menu-options/surveys/question1/question1.module').then( m => m.Question1PageModule)
-  },
-  {
-    path: 'done-page',
-    loadChildren: () => import('./menu-options/done-page/done-page.module').then( m => m.DonePagePageModule)
-  },
-  {
-    path: 'question2',
-    loadChildren: () => import('./menu-options/surveys/question2/question2.module').then( m => m.Question2PageModule)
-  },
-  {
     path: 'tasks',
     loadChildren: () => import('./menu-options/tasks/tasks.module').then( m => m.TasksPageModule)
   },
@@ -52,6 +40,24 @@ const routes: Routes = [
     path: 'daily-activity',
     loadChildren: () => import('./menu-options/surveys/daily-activity/daily-activity.module').then( m => m.DailyActivityPageModule)
   },
+  {
+    path: 'depression',
+    loadChildren: () => import('./menu-options/surveys/depression/depression.module').then( m => m.DepressionPageModule)
+  },
+  {
+    path: 'wound',
+    loadChildren: () => import('./menu-options/surveys/wound/wound.module').then( m => m.WoundPageModule)
+  },
+  {
+    path: 'follow-up',
+    loadChildren: () => import('./menu-options/surveys/follow-up/follow-up.module').then( m => m.FollowUpPageModule)
+  },
+  {
+    path: 'survey-page',
+    loadChildren: () => import('./menu-options/surveys/survey-page/survey-page.module').then( m => m.SurveyPagePageModule)
+  },
+
+
 
 ];
 

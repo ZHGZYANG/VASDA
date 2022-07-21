@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
+    <app-back-button></app-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <h1>How are you doing today {{user_fname}}?</h1>
+  <div class="container">
+    <div class="cell cell-1"><ion-button (click)=activityBtn()  expand="full" fill="clear"><div><img src="./assets/icon/activity.png" alt=""><div id = "cell1"><br>Daily activity</div></div></ion-button></div>
+    <div class="cell cell-2"><ion-button (click)=painBtn() expand="full" fill="clear"><div><img src="./assets/icon/pain.png" alt=""><div id = "cell2"><br>Daily pain</div></div></ion-button></div>
+    <div class="cell cell-3"><ion-button (click)=moodBtn() expand="full" fill="clear"><div><img src="./assets/icon/mood.png" alt=""><div id = "cell3"><br>Daily mood</div></div></ion-button></div>
+    <div class="cell cell-4"><ion-button (click)=woundBtn() expand="full" fill="clear"><div><img src="./assets/icon/wound.png" alt=""><div id = "cell4"><br>Daily wound</div></div></ion-button></div>
+    <div class="cell cell-5"><ion-button (click)=picBtn() expand="full" fill="clear"><div><img src="./assets/icon/pic.png" alt=""><div id = "cell5"><br>Daily picture</div></div></ion-button></div>
+    <div class="cell cell-7"><ion-button (click)=followUpBtn() expand="full" fill="clear"><div><img src="./assets/icon/followUp.png" alt=""><div id = "cell6"><br>Follow up</div></div></ion-button></div>
+    
+    <!-- <div id="emergency" class="cell cell-8"><ion-button (click)=emergencybttn() expand="full" fill="clear"><div><ion-icon name="call-outline" size="large"></ion-icon><br>EMERGENCY</div></ion-button></div> -->
+    
+  </div>
+
+</ion-content>
+<app-tab-bar></app-tab-bar>

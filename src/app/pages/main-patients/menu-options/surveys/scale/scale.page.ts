@@ -10,16 +10,8 @@ import { FormGroup,FormBuilder, FormControl } from '@angular/forms';
 })
 export class ScalePage implements OnInit {
 
-  peg={  
-    pain:"",
-    enjoyment:"",
-    generalActivity:""
-  }
-
-  inputs = document.getElementsByTagName('input')
 
 
-  
   constructor(
     private router: Router,
   ) { }
@@ -27,23 +19,18 @@ export class ScalePage implements OnInit {
   ngOnInit() {​
   }
 
+  peg = new FormGroup({
+    pain: new FormControl(''),
+    enjoyment: new FormControl(''),
+    general: new FormControl('')
+  })
+
   clear = function(){
-    for(var i=0;i<this.inputs.length;i++){
-      this.inputs[i].checked=false
-    }
+    this.peg.reset()
   };
 
   onSubmit(): void{
-    this.peg.pain = document.querySelector('input[name=pain]:checked')['value']
-    this.peg.enjoyment = document.querySelector('input[name=enjoyment]:checked')['value']
-    this.peg.generalActivity = document.querySelector('input[name=general]:checked')['value']
+    console.log(this.peg.value)
     this.clear()
-    console.log(this.peg)
   }
-  
-  
-  
-
-
-
 }

@@ -1,59 +1,60 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>How are you feeling today?</ion-title>
+    <ion-title><ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title></ion-title>
+    <app-back-button></app-back-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="wrap">
     <h1 class="likert-header">Tell us about your pain today</h1>
-    <form >
+    <form [formGroup]="peg" (ngSubmit)="onSubmit">
       <label class="statement">What number best describes your pain, on average, in the past week?</label>
       <div class="surveyWrapper">
         <ul class='likert'>
           <li>
             <label>0</label>
-            <input type="radio" value="0" name="pain">
+            <input type="radio" value="0" name="pain" formControlName="pain">
           </li>
           <li>
             <label>1</label>
-            <input type="radio" value="1" name="pain">
+            <input type="radio" value="1" name="pain" formControlName="pain">
           </li>
           <li>
             <label>2</label>
-            <input type="radio" value="2" name="pain">
+            <input type="radio" value="2" name="pain" formControlName="pain">
           </li>
           <li>
             <label>3</label>
-            <input type="radio" value="3" name="pain">
+            <input type="radio" value="3" name="pain" formControlName="pain">
           </li>
           <li>
             <label>4</label>
-            <input type="radio" value="4" name="pain">
+            <input type="radio" value="4" name="pain" formControlName="pain">
           </li>
           <li>
             <label>5</label>
-            <input type="radio" value="5" name="pain">
+            <input type="radio" value="5" name="pain" formControlName="pain">
           </li>
           <li>
             <label>6</label>
-            <input type="radio" value="6" name="pain">
+            <input type="radio" value="6" name="pain" formControlName="pain">
           </li>
           <li>
             <label>7</label>
-            <input type="radio" value="7" name="pain">
+            <input type="radio" value="7" name="pain" formControlName="pain">
           </li>
           <li>
             <label>8</label>
-            <input type="radio" value="8" name="pain">
+            <input type="radio" value="8" name="pain" formControlName="pain">
           </li>
           <li>
             <label>9</label>
-            <input type="radio" value="9" name="pain">
+            <input type="radio" value="9" name="pain" formControlName="pain">
           </li>
           <li>
             <label>10</label>
-            <input type="radio" value="10" name="pain">
+            <input type="radio" value="10" name="pain" formControlName="pain">
             
           </li>
         </ul>
@@ -68,47 +69,47 @@
         <ul class='likert'>
           <li>
             <label>0</label>
-            <input type="radio" value="0" name="enjoyment">
+            <input type="radio" value="0" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>1</label>
-            <input type="radio" value="1" name="enjoyment">
+            <input type="radio" value="1" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>2</label>
-            <input type="radio" value="2" name="enjoyment">
+            <input type="radio" value="2" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>3</label>
-            <input type="radio" value="3" name="enjoyment">
+            <input type="radio" value="3" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>4</label>
-            <input type="radio" value="4" name="enjoyment">
+            <input type="radio" value="4" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>5</label>
-            <input type="radio" value="5" name="enjoyment">
+            <input type="radio" value="5" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>6</label>
-            <input type="radio" value="6" name="enjoyment">
+            <input type="radio" value="6" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>7</label>
-            <input type="radio" value="7" name="enjoyment">
+            <input type="radio" value="7" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>8</label>
-            <input type="radio" value="8" name="enjoyment">
+            <input type="radio" value="8" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>9</label>
-            <input type="radio" value="9" name="enjoyment">
+            <input type="radio" value="9" name="enjoyment" formControlName="enjoyment">
           </li>
           <li>
             <label>10</label>
-            <input type="radio" value="10" name="enjoyment">
+            <input type="radio" value="10" name="enjoyment" formControlName="enjoyment">
             
           </li>
         </ul>
@@ -123,47 +124,47 @@
         <ul class='likert'>
           <li>
             <label>0</label>
-            <input type="radio" value="0" name="general">
+            <input type="radio" value="0" name="general" formControlName="general">
           </li>
           <li>
             <label>1</label>
-            <input type="radio" value="1" name="general">
+            <input type="radio" value="1" name="general" formControlName="general">
           </li>
           <li>
             <label>2</label>
-            <input type="radio" value="2" name="general">
+            <input type="radio" value="2" name="general" formControlName="general">
           </li>
           <li>
             <label>3</label>
-            <input type="radio" value="3" name="general">
+            <input type="radio" value="3" name="general" formControlName="general">
           </li>
           <li>
             <label>4</label>
-            <input type="radio" value="4" name="general">
+            <input type="radio" value="4" name="general" formControlName="general">
           </li>
           <li>
             <label>5</label>
-            <input type="radio" value="5" name="general">
+            <input type="radio" value="5" name="general" formControlName="general">
           </li>
           <li>
             <label>6</label>
-            <input type="radio" value="6" name="general">
+            <input type="radio" value="6" name="general" formControlName="general">
           </li>
           <li>
             <label>7</label>
-            <input type="radio" value="7" name="general">
+            <input type="radio" value="7" name="general" formControlName="general">
           </li>
           <li>
             <label>8</label>
-            <input type="radio" value="8" name="general">
+            <input type="radio" value="8" name="general" formControlName="general">
           </li>
           <li>
             <label>9</label>
-            <input type="radio" value="9" name="general">
+            <input type="radio" value="9" name="general" formControlName="general">
           </li>
           <li>
             <label>10</label>
-            <input type="radio" value="10" name="general">
+            <input type="radio" value="10" name="general" formControlName="general">
             
           </li>
         </ul>
@@ -180,3 +181,5 @@
     </form>
   </div>
 </ion-content>
+
+<app-tab-bar></app-tab-bar>

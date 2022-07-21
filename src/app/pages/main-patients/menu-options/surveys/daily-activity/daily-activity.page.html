@@ -1,114 +1,109 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>How are you feeling today?</ion-title>
+    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
+    <app-back-button></app-back-button>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <h1 class="header">Tell us about your daily activity</h1>
   
-  <h4 class="question">How much help do you need from another person?</h4>
+  <h4 class="question">How much help do you need from another person: </h4>
 
   
   <div class="wrapper">
-    <form class="form">
-
-      <h2 >Putting on and taking off regular lower body clothing</h2>
-      <div class="switch-field">
-        
-        <input type="radio" id="radio-1" name="changingLower" value="Unable"/>
-        <label for="radio-1">Unable</label>
-
-        <input type="radio" id="radio-2" name="changingLower" value="A lot" />
-        <label for="radio-2">A lot</label>
-
-        <input type="radio" id="radio-3" name="changingLower" value="A little" />
-        <label for="radio-3">A little</label>
-
-        <input type="radio" id="radio-4" name="changingLower" value="None" />
-        <label for="radio-4">None</label>
+    <form class="form" [formGroup]="dailyActivity" (ngSubmit)="onSubmit">
+      
+      <div class="statementWrapper">
+        <h4 class="question">Putting on and taking off regular lower body clothing</h4>
+        <input type="radio" name="changingLower" value="Unable" formControlName="changingLower">
+        <label>Unable</label>
+        <br>  
+        <input type="radio" name="changingLower" value="A lot" formControlName="changingLower">
+        <label>A lot</label>
+        <br>
+        <input type="radio" name="changingLower" value="A little" formControlName="changingLower">
+        <label>A little</label>
+        <br>
+        <input type="radio" name="changingLower" value="None" formControlName="changingLower">
+        <label>None</label>  
       </div>
 
-      <h2 >Bathing (including washing, rinsing, drying)?</h2>
-      <div class="switch-field">
-        
-        <input type="radio" id="radio-5" name="bathing" value="Unable"/>
-        <label for="radio-5">Unable</label>
-
-        <input type="radio" id="radio-6" name="bathing" value="A lot" />
-        <label for="radio-6">A lot</label>
-
-        <input type="radio" id="radio-7" name="bathing" value="A little" />
-        <label for="radio-7">A little</label>
-
-        <input type="radio" id="radio-8" name="bathing" value="None" />
-        <label for="radio-8">None</label>
+      <div class="statementWrapper">
+        <h4 class="question">Bathing (including washing, rinsing, drying)?</h4>
+        <input type="radio" name="bathing" value="Unable" formControlName="bathing">
+        <label>Unable</label>
+        <br>  
+        <input type="radio" name="bathing" value="A lot" formControlName="bathing">
+        <label>A lot</label>
+        <br>
+        <input type="radio" name="bathing" value="A little" formControlName="bathing">
+        <label>A little</label>
+        <br>
+        <input type="radio" name="bathing" value="None" formControlName="bathing">
+        <label>None</label>  
       </div>
 
-      <h2 >Toileting, which includes using toilet, bedpan, or urinal?</h2>
-      <div class="switch-field">
-        
-        <input type="radio" id="radio-9" name="toileting" value="Unable"/>
-        <label for="radio-9">Unable</label>
-
-        <input type="radio" id="radio-10" name="toileting" value="A lot" />
-        <label for="radio-10">A lot</label>
-
-        <input type="radio" id="radio-11" name="toileting" value="A little" />
-        <label for="radio-11">A little</label>
-
-        <input type="radio" id="radio-12" name="toileting" value="None" />
-        <label for="radio-12">None</label>
+      <div class="statementWrapper">
+        <h4 class="question">Toileting, which includes using toilet, bedpan, or urinal?</h4>
+        <input type="radio" name="toileting" value="Unable" formControlName="toileting">
+        <label>Unable</label>
+        <br>  
+        <input type="radio" name="toileting" value="A lot" formControlName="toileting">
+        <label>A lot</label>
+        <br>
+        <input type="radio" name="toileting" value="A little" formControlName="toileting">
+        <label>A little</label>
+        <br>
+        <input type="radio" name="toileting" value="None" formControlName="toileting">
+        <label>None</label>  
       </div>
 
-      <h2 >Putting on and taking off regular upper body clothing?</h2>
-      <div class="switch-field">
-        
-        <input type="radio" id="radio-13" name="changingUpper" value="Unable"/>
-        <label for="radio-13">Unable</label>
-
-        <input type="radio" id="radio-14" name="changingUpper" value="A lot" />
-        <label for="radio-14">A lot</label>
-
-        <input type="radio" id="radio-15" name="changingUpper" value="A little" />
-        <label for="radio-15">A little</label>
-
-        <input type="radio" id="radio-16" name="changingUpper" value="None" />
-        <label for="radio-16">None</label>
+      <div class="statementWrapper">
+        <h4 class="question">Putting on and taking off regular upper body clothing?</h4>
+        <input type="radio" name="changingUpper" value="Unable" formControlName="changingUpper">
+        <label>Unable</label>
+        <br>  
+        <input type="radio" name="changingUpper" value="A lot" formControlName="changingUpper">
+        <label>A lot</label>
+        <br>
+        <input type="radio" name="changingUpper" value="A little" formControlName="changingUpper">
+        <label>A little</label>
+        <br>
+        <input type="radio" name="changingUpper" value="None" formControlName="changingUpper">
+        <label>None</label>  
       </div>
 
-      <h2 >Taking care of personal grooming such as brushing teeth?</h2>
-      <div class="switch-field">
-        
-        <input type="radio" id="radio-17" name="grooming" value="Unable"/>
-        <label for="radio-17">Unable</label>
-
-        <input type="radio" id="radio-18" name="grooming" value="A lot" />
-        <label for="radio-18">A lot</label>
-
-        <input type="radio" id="radio-19" name="grooming" value="A little" />
-        <label for="radio-19">A little</label>
-
-        <input type="radio" id="radio-20" name="grooming" value="None" />
-        <label for="radio-20">None</label>
+      <div class="statementWrapper">
+        <h4 class="question">Taking care of personal grooming such as brushing teeth?</h4>
+        <input type="radio" name="grooming" value="Unable" formControlName="grooming">
+        <label>Unable</label>
+        <br>  
+        <input type="radio" name="grooming" value="A lot" formControlName="grooming">
+        <label>A lot</label>
+        <br>
+        <input type="radio" name="grooming" value="A little" formControlName="grooming">
+        <label>A little</label>
+        <br>
+        <input type="radio" name="grooming" value="None" formControlName="grooming">
+        <label>None</label>  
       </div>
 
-      <h2 >Eating meals?</h2>
-      <div class="switch-field">
-        
-        <input type="radio" id="radio-21" name="eating" value="Unable"/>
-        <label for="radio-21">Unable</label>
-
-        <input type="radio" id="radio-22" name="eating" value="A lot" />
-        <label for="radio-22">A lot</label>
-
-        <input type="radio" id="radio-23" name="eating" value="A little" />
-        <label for="radio-23">A little</label>
-
-        <input type="radio" id="radio-24" name="eating" value="None" />
-        <label for="radio-24">None</label>
+      <div class="statementWrapper">
+        <h4 class="question">Eating meals?</h4>
+        <input type="radio" name="eating" value="Unable" formControlName="eating">
+        <label>Unable</label>
+        <br>  
+        <input type="radio" name="eating" value="A lot" formControlName="eating">
+        <label>A lot</label>
+        <br>
+        <input type="radio" name="eating" value="A little" formControlName="eating">
+        <label>A little</label>
+        <br>
+        <input type="radio" name="eating" value="None" formControlName="eating">
+        <label>None</label>  
       </div>
-  
+      
+
     </form>
 
     <div class="buttons">
@@ -117,6 +112,6 @@
     </div>
   </div>
 
-
-
 </ion-content>
+
+<app-tab-bar></app-tab-bar>

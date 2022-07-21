@@ -18,18 +18,5 @@ export class TasksPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    var User = JSON.parse(localStorage.getItem('user'));
-    this.userService.verifyUser(User).subscribe(
-      (response) => {
-        this.survey_taken = response['USER']['survey_taken']
-      }
-    )
-  }
-
-  surveyBtn = function(){
-    this.router.navigateByUrl('/main-patients/question1')
-  }
-  uploadBtn = function(){
-    this.router.navigateByUrl('/main-patients/upload')
   }
 }

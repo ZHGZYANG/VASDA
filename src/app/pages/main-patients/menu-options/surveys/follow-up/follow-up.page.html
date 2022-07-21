@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
+    <app-back-button></app-back-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  
+  <div class="wrapper">
+    <form class="form" [formGroup]="followUpSurvey" (ngSubmit)="onSubmit()">
+
+
+      <div class="statementWrapper">
+        <h4 class="question">Is your surgery follow-up appointment scheduled?</h4>
+        <input type="radio" name="scheduled" value="yes" formControlName="scheduled">
+        <label>Yes</label>
+        <br>  
+        <input type="radio" name="scheduled" value="no" formControlName="scheduled">
+        <label>No</label>
+      </div>
+
+
+      <div class="statementWrapper">
+        <h4 class="question">Do you know the date, time, and place?</h4>
+        <input type="radio" name="date" value="yes" formControlName="date">
+        <label>Yes</label>
+        <br>  
+        <input type="radio" name="date" value="no" formControlName="date">
+        <label>No</label>
+      </div>
+
+    </form>
+
+    <div class="buttons">
+      <ion-button color="light" class="clear" (click)=clear()>Clear</ion-button>
+      <ion-button class="submit" (click)=onSubmit()>Submit</ion-button>
+    </div>
+  </div>
+
+
+
+</ion-content>
+
+<app-tab-bar></app-tab-bar>

@@ -14,31 +14,30 @@ export class MenuGridComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
   }
 
   homehealthbttn = function() {
-      this.router.navigateByUrl('main-patients/home-health')
+    this.router.navigateByUrl('main-patients/home-health')
   }
 
   tasksbttn = function() {
-      this.router.navigateByUrl('main-patients/tasks')
+    this.router.navigateByUrl('main-patients/tasks')
   }
   
   apptbttn = function() {
-      this.router.navigateByUrl('main-patients/appointments')
+    this.router.navigateByUrl('main-patients/appointments')
   }
 
   dschargebttn = function() {
-      this.router.navigateByUrl('main-patients/discharge-instructions')
+    this.router.navigateByUrl('main-patients/discharge-instructions')
   }
 
   surveybttn = function() {
-      this.router.navigateByUrl('main-patients/question1')
+    this.router.navigateByUrl('main-patients/survey-page')
   }
 
   woundbttn = function() {
-      this.router.navigateByUrl('main-patients/upload')
+    this.router.navigateByUrl('main-patients/upload')
   }
 
   emergencybttn = function() {
