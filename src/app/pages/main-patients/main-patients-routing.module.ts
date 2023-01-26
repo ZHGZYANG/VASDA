@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./menu-options/discharge-instructions/discharge-instructions.module').then( m => m.DischargeInstructionsPageModule)
   },
   {
-    path: 'upload',
-    loadChildren: () => import('./tab-bar-options/upload/upload.module').then( m => m.UploadPageModule)
-  },
-  {
     path: 'chat',
     loadChildren: () => import('./tab-bar-options/chat/chat.module').then( m => m.ChatPageModule)
   },
@@ -55,6 +51,14 @@ const routes: Routes = [
   {
     path: 'survey-page',
     loadChildren: () => import('./menu-options/surveys/survey-page/survey-page.module').then( m => m.SurveyPagePageModule)
+  },
+  {
+    path: 'woundpic',
+    loadChildren: () => import('./menu-options/surveys/woundpic/woundpic/woundpic.module').then( m => m.WoundpicPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./tab-bar-options/profile/profile/profile.module').then( m => m.ProfilePageModule)
   },
 
 

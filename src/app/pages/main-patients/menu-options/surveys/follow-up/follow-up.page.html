@@ -1,31 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
     <app-back-button></app-back-button>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  
+  <div>
+    <div class="alert-div">
+      <div class="alert" *ngIf="alert">{{alert}}</div> 
+    </div>
+  </div>
   <div class="wrapper">
-    <form class="form" [formGroup]="followUpSurvey" (ngSubmit)="onSubmit()">
-
-
+    <form class="form" [formGroup]="followUp" (ngSubmit)="onSubmit()">
       <div class="statementWrapper">
         <h4 class="question">Is your surgery follow-up appointment scheduled?</h4>
-        <input type="radio" name="scheduled" value="yes" formControlName="scheduled">
+        <input type="radio" name="q1" value="1" formControlName="q1">
         <label>Yes</label>
         <br>  
-        <input type="radio" name="scheduled" value="no" formControlName="scheduled">
+        <input type="radio" name="q1" value="0" formControlName="q1">
         <label>No</label>
       </div>
 
 
       <div class="statementWrapper">
         <h4 class="question">Do you know the date, time, and place?</h4>
-        <input type="radio" name="date" value="yes" formControlName="date">
+        <input type="radio" name="q2" value="1" formControlName="q2">
         <label>Yes</label>
         <br>  
-        <input type="radio" name="date" value="no" formControlName="date">
+        <input type="radio" name="q2" value="0" formControlName="q2">
         <label>No</label>
       </div>
 

@@ -39,6 +39,44 @@
           </div>
         </ion-col>
         <ion-col>
+          <br>
+          <ion-label>
+            Enter your birthday:
+          </ion-label>
+          <ion-item>
+            <ion-input id="email-input" placeholder="Birthday" type = "date" class="form-control" formControlName="birthday"
+            [class.is-invalid]="birthday.invalid && birthday.touched"></ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="(birthday.invalid && birthday.touched) || email.dirty">
+              <small *ngIf="birthday.errors?.required" class="text-danger">Birthday is required.</small>
+              <small *ngIf="birthday.errors?.pattern" class="text-danger">Please provide a valid date.</small>
+          </div>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input id="email-input" placeholder="Address" type = "text" class="form-control" formControlName="address"
+            [class.is-invalid]="address.invalid && address.touched"></ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="(address.invalid && address.touched) || address.dirty">
+              <small *ngIf="address.errors?.required" class="text-danger">Address is required.</small>
+              <small *ngIf="address.errors?.pattern" class="text-danger">Please provide a valid date.</small>
+          </div>
+        </ion-col>
+        <ion-col>
+          <br>
+          <ion-label>
+            Enter your surgery date:
+          </ion-label>
+          <ion-item>
+            <ion-input id="email-input" placeholder="Surgery Date" type = "date" class="form-control" formControlName="surgery_date"
+            [class.is-invalid]="surgery_date.invalid && surgery_date.touched"></ion-input>
+          </ion-item>
+          <div class="errors" *ngIf="(surgery_date.invalid && surgery_date.touched) || address.dirty">
+              <small *ngIf="surgery_date.errors?.required" class="text-danger">Surgery Date is required.</small>
+              <small *ngIf="surgery_date.errors?.pattern" class="text-danger">Please provide a valid date.</small>
+          </div>
+        </ion-col>
+        <ion-col>
           <ion-item>
             <ion-input id="username" placeholder="username" type = "text" class="form-control" formControlName="username"
             [class.is-invalid]="username.invalid && username.touched"></ion-input>
@@ -72,7 +110,6 @@
         <ion-button  id="reg_button" (click)=btnRegister() expand="block" style = "margin: 20px;">Register</ion-button>  
         <div id = "options">
           <ion-button  (click)=btnPatient() style="float: left;" fill="clear">Patient Login</ion-button>
-          <ion-button  (click)=btnDoctor() style="float: right;" fill="clear">Doctor Login</ion-button>
         </div>
       </ion-grid>
     </form>

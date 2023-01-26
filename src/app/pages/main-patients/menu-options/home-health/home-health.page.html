@@ -1,11 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
-    <app-back-button></app-back-button>
+    <app-back-button slot="start"></app-back-button>
+    <ion-title class="ion-text-center" style="margin-right: 10%">
+      Home Health
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color = "light">
+<ion-content>
   <div id = "appbox" *ngFor="let appointment of appointments">
     <h1>Date: {{appointment['date']}}</h1>
     <p><strong>Location: </strong>{{appointment['location']}} </p>

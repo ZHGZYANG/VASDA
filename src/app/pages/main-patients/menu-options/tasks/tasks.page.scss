@@ -1,14 +1,17 @@
-
 ion-item{
     margin: 15px;
     border: 5px solid #ccc;
 
 }
-
 ion-button{
     width: 150px
 }
-
+ion-header {
+    height: 7%;
+}
 img{
     transform: scale(.1);
+}
+#survey-task {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }

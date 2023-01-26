@@ -14,7 +14,7 @@ export class TabBarComponent implements OnInit {
   ngOnInit() {}
 
   homebtn = function() {
-    if(!this.User['P_id']){
+    if(!this.User['pid']){
       this.router.navigateByUrl('main-doctors')
     }else{
       this.router.navigateByUrl('main-patients')
@@ -22,18 +22,18 @@ export class TabBarComponent implements OnInit {
   }
 
   chatbtn = function() {
-    if(!this.User['P_id']){
+    if(!this.User['pid']){
       this.router.navigateByUrl('main-doctors/chat')
     }else{
       this.router.navigateByUrl('main-patients/chat')
     }
   }
 
-  uploadbtn = function() {
-    if(!this.User['P_id']){
+  profileBtn = function() {
+    if(!this.User['pid']){
       this.router.navigateByUrl('main-doctors/view-pics')
     }else{
-      this.router.navigateByUrl('main-patients/upload')
+      this.router.navigateByUrl('main-patients/profile')
     }
   }
 

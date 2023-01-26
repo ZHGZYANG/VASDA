@@ -1,6 +1,4 @@
-<ion-content color="light">
-  <img src="./assets/icon/VASDA.png">
-  <h1>Doctors Login</h1>
+<ion-content>
   <div>
     <div class="alert-div">
       <div class="alert" *ngIf="alert">{{alert}}</div>
@@ -8,6 +6,9 @@
   </div>
   <form>
     <div class="form-group" id="outter-form">
+      <img src="./assets/icon/VASDA.png" style="width: 600px; height: auto; margin-bottom: 5%;">
+
+      <h1>Doctors Login</h1>
       <form [formGroup] = "formInputs">
         <ion-list id="inputs" style="background-color: transparent;">
           <ion-item>
@@ -15,7 +16,7 @@
               <ion-icon name='person'></ion-icon>
             </ion-label>
             <ion-input id="username" placeholder="username" type="text" class="form-control" formControlName="username"
-            [class.is-invalid]="username.invalid && username.touched"></ion-input>
+            [class.is-invalid]="username.invalid && username.touched" style="height: 70px;"></ion-input>
           </ion-item>
           <div class="errors" *ngIf="(username.invalid && username.touched) || username.dirty">
             <small *ngIf="username.errors?.required" class="text-danger">Username required.</small>
@@ -34,7 +35,7 @@
           </div>
           <ion-button id="loginBtn" (click)=btnLogin() expand="block" style = "margin: 20px;">Login</ion-button>  
           <ion-button (click)=btnForgotPassword() fill="clear" expand="block" style="margin:20px">Forgot Password</ion-button>
-          <div id = "options">
+          <div id = "options" style="margin-top: 5%;">
             <ion-button (click)=btnClick() style="float: left;" fill="clear">Patients Login</ion-button>
             <ion-button (click)=btnRegister() style="float: right;" fill="clear">Create Account</ion-button>
           </div>

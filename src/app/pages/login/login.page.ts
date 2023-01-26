@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/service/user.service';
-import { User } from 'src/app/interface/user';
 
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
@@ -44,57 +43,37 @@ export class LoginPage implements OnInit {
   btnLogin = function(){
 
     this.submitted = true;
-
     
-    var user: User = {
-      P_id: undefined,
-      FName: undefined,
-      LName: undefined,
-      Username: this.username.value,
-      Password: this.password.value,
-      Email: undefined,
-      Profile_Picture: undefined,
-      Survey_Status: undefined,
-      Wound_Status: undefined
-    }
-    
-    this.userService.verifyUser(user).subscribe(
-      (response: { [x: string]: number; }) => {
-        if(response['HTTP STATUS'] == 201 && response['USER']['P_id']){
-  
-          this.isAuthenticated = true;
-          this.submitted = false;
+    this.userService.verifyUser(this.username.value, this.password.value).subscribe(
+      (response) => {
+        for(var k of response){
 
-          const chat = response['RECORD']['Chat_Array']
-          const appointments = response['RECORD']['Appointment_Array']
-          const instructions = response['RECORD']['Discharge_Instructions']
-  
-          user.P_id = response['USER']['P_id']['$oid'];
-          user.FName = response['USER']['FName'];            
-          user.LName = response['USER']['LName'];
-          user.Email = response['USER']['Email'];
-          user.Profile_Picture = response['USER']['Profile_Picture'];
-  
-          sessionStorage.setItem('user', JSON.stringify(user));
-          sessionStorage.setItem('chat',JSON.stringify(chat));
-          sessionStorage.setItem('appointments',JSON.stringify(appointments));
-          sessionStorage.setItem('instruction',JSON.stringify(instructions));
+          if(this.username.value==k['patient_username'] && this.password.value==k['patient_password']){
+            console.log(k)
+            this.isAuthenticated = true;
+            this.submitted = false;
 
 
-          (<HTMLInputElement>document.getElementById("username")).value = '';
-          (<HTMLInputElement>document.getElementById("password")).value = '';
-          this.alert = "";
-              
-          this.router.navigateByUrl('main-patients');
-        } 
-        else
-        {
-          this.isAuthenticated = false;
-          this.alert = "Invalid username or password.";
-          (<HTMLInputElement>document.getElementById("password")).value = '';
+             //storing recordid_pss and recap_event_name to make changes to the user on Redcap simply by passing in the entire object
+            k['redcap_event_name'] = 'patients_arm_2'
+
+            sessionStorage.setItem('user', JSON.stringify(k));
   
-          return;
+  
+            (<HTMLInputElement>document.getElementById("username")).value = '';
+            (<HTMLInputElement>document.getElementById("password")).value = '';
+            this.alert = "";
+                
+            this.router.navigateByUrl('main-patients');
+          }
         }
+
+        
+        this.isAuthenticated = false;
+        this.alert = "Invalid username or password.";
+        (<HTMLInputElement>document.getElementById("password")).value = '';
+  
+        
       },
       (error: any) => {
         this.alert = "An unexpected error has occured."
@@ -103,9 +82,6 @@ export class LoginPage implements OnInit {
     )
   }
 
-  btnClick = function(){
-    this.router.navigateByUrl('/doctors-login');
-  };
 
   btnForgotPassword = function(){
     this.router.navigateByUrl('/forget-password');

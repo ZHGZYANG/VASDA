@@ -1,10 +1,80 @@
 <ion-header>
-    <ion-title>VASDA</ion-title>
+    <ion-title style="margin-top: 1%;">VASDA</ion-title>
 </ion-header>
 <ion-content color="light">
   <div id="greeting">
     <p>Hello, {{username}}!</p>
   </div>
- 
+
+  <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Address</th>
+            <th>Surgery Date</th>
+            <th>Days Since Surgery</th>
+            <th>Presurgery</th>
+            <th>Day of Discharge</th>
+            <th>Day 1</th>
+            <th>Day 2</th>
+            <th>Day 3</th>
+            <th>Day 4</th>
+            <th>Day 7</th>
+            <th>Day 14</th>
+            <th>Day 30</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let patient of patient_information; let i = index">
+            <td>{{patient['name']}}</td>
+            <td>{{patient['id']}}</td>
+            <td>{{patient['address']}}</td>
+            <td>{{patient['surgery_date']}}</td>
+            <td>{{patient['days_since_surgery']}}</td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['presurgery_complete'] == 2,
+                'incomplete' : patient['presurgery_complete'] == 0 || patient['presurgery_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['dod_complete'] == 2,
+                'incomplete' : patient['dod_complete'] == 0 || patient['dod_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['day1_complete'] == 2,
+                'incomplete' : patient['day1_complete'] == 0 || patient['day1_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['day2_complete'] == 2,
+                'incomplete' : patient['day2'] == 0 || patient['day2_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['day3_complete'] == 2,
+                'incomplete' : patient['day3_complete'] == 0 || patient['day3_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['day4_complete'] == 2,
+                'incomplete' : patient['day4_complete'] == 0 || patient['day4_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['day7_complete'] == 2,
+                'incomplete' : patient['day7_complete'] == 0 || patient['day7_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['day14_complete'] == 2,
+                'incomplete' : patient['day14_complete'] == 0 || patient['day14_complete'] == null
+             }"></ion-button></td>
+            <td><ion-button shape="round" size="small" (click)=test(patient) [ngClass]="{
+                'complete' : patient['day30_complete'] == 2,
+                'incomplete' : patient['day30_complete'] == 0 || patient['day30_complete'] == null
+             }"></ion-button></td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+</table>
+
+
+
+
 </ion-content>
 <app-tab-bar></app-tab-bar>

@@ -3,6 +3,7 @@ import { UserService } from 'src/app/service/user.service';
 import { alertController } from '@ionic/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-main-patients',
   templateUrl: './main-patients.page.html',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 export class MainPatientsPage implements OnInit {
 
   user_fname: any
+  days:any //days variable to store the number of days post surgery
+  arm:any //determined by days variable to display what surveys the patient needs to take
 
   constructor(
     private userservice: UserService,
@@ -19,12 +22,17 @@ export class MainPatientsPage implements OnInit {
 
   ngOnInit() {
     var User = JSON.parse(sessionStorage.getItem('user'));
-    this.user_fname = User["FName"];
+    this.user_fname = User["patient_name"];
     console.log(User)
-    this.surveyAlert();
+
+    if(User['patient_survey_taken']=='0'){
+      this.surveyAlert();
+    }
+
   }
 
   surveyAlert = async function() {
+    
     const alert = await alertController.create({
       header:'Tell us about your health today!',
       message:'',

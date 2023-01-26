@@ -35,10 +35,19 @@ export class UserRegistrationPage implements OnInit {
   get re_password(){
     return this.formInputs.get('re_password');
   }
+  get address(){
+    return this.formInputs.get('address');
+  }
+  get birthday(){
+    return this.formInputs.get('birthday');
+  }
+  get surgery_date(){
+    return this.formInputs.get('surgery_date');
+  }
 
   constructor(
     private router: Router, 
-    private userService: UserService,
+    private userservice: UserService,
     private formBuilder: FormBuilder
   ) { }
 
@@ -46,6 +55,7 @@ export class UserRegistrationPage implements OnInit {
     localStorage.clear();
     this.formInputs = this.formBuilder.group(
       {
+        
         fname: new FormControl('', Validators.required),
         lname: new FormControl('', Validators.required),
         email: new FormControl('',
@@ -55,7 +65,10 @@ export class UserRegistrationPage implements OnInit {
         ]),
         username: new FormControl('', Validators.required),
         password: new FormControl('', Validators.required),
-        re_password: new FormControl('', Validators.required)
+        re_password: new FormControl('', Validators.required),
+        address: new FormControl('',Validators.required),
+        birthday: new FormControl('',Validators.required),
+        surgery_date: new FormControl('')
       }
     )
   };
@@ -66,62 +79,20 @@ export class UserRegistrationPage implements OnInit {
       this.alert = "Passwords do not match."
       return;
     }
-    else{
-      var user: User = {
-        P_id: undefined,
-        FName: this.fname.value,
-        LName: this.lname.value,
-        Username: this.username.value,
-        Password: this.username.value,
-        Email: this.email.value,
-        Profile_Picture: undefined,
-        Survey_Status: undefined,
-        Wound_Status: undefined
+    console.log(JSON.stringify(this.formInputs.value))
+     this.userservice.registerUser(JSON.stringify(this.formInputs.value)).subscribe(
+      (response)=>{
+        console.log(response)
+      },
+      (error)=>{
+        console.log(error)
       }
-
-      this.userService.verifyUser(user).subscribe(
-        (response: { [x: string]: number; }) => {
-          if(response['HTTP STATUS'] == 201 || response['HTTP STATUS'] == 409){
-            //we have found a user with the credentials, change alert and try again
-            this.alert = "Username already exists";
-            (<HTMLInputElement>document.getElementById("password")).value = '';
-            (<HTMLInputElement>document.getElementById("re-password")).value = '';
-
-            return;
-          } 
-          else if(response['HTTP STATUS'] == 410){
-            //username does not exist but email is in use
-            this.alert = "Email already in use";
-
-            (<HTMLInputElement>document.getElementById("password")).value = '';
-            (<HTMLInputElement>document.getElementById("re-password")).value = '';
-
-            return;
-          }
-          else //there was not a user found with the username and password combo
-          {
-            this.userService.registerUser(user).subscribe(
-              (response: { [x: string]: number; }) => {
-                if(response['HTTP STATUS'] == 201){
-                  this.alert = '';
-                  localStorage.clear();
-                  this.router.navigateByUrl('login')
-                }
-                else{
-                  this.alert = 'Server Error';
-                  this.router.navigateByUrl('user-registration');
-                }
-              }
-            )
-          }
-        }) 
-      }
-    }
+    )
+    
+    this.router.navigateByUrl('login')
+  }
 
   btnPatient = function() {
     this.router.navigateByUrl('login');
-  }
-  btnDoctor = function() {
-    this.router.navigateByUrl('/doctors-login');
   }
 }

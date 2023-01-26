@@ -1,9 +1,26 @@
+
 ion-content{
     text-align: center;
+    margin: 2%;
 }
-h1{
+h1 {
     font-weight: bolder;
-  }
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    padding: 10px;
+}
+h4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 8%;
+    padding-right: 8%;
+    color: black;
+}
+.question {
+    font-size: larger;
+}
+label {
+    font-size: large;
+}
 
 img{
     transform: scale(.1);
@@ -11,6 +28,14 @@ img{
 input{
     transform: scale(2);
     margin: 15px;
+}
+.wrapper {
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+ion-button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .statementWrapper{
@@ -23,5 +48,16 @@ input{
 .buttons ion-button{
     margin: 5%;
     width: 25%;
-  
-  }
+}
+.alert-div {
+    padding: 1%;
+}
+.alert {
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 2%;
+    padding: 5%;
+    text-align: center;
+}

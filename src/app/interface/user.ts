@@ -1,12 +1,9 @@
 export interface User {
     P_id: String,
-    FName: String,
-    LName: String,
-    Username: String,
-    Password: String,
+    Name: String,
     Email: String,
-    Profile_Picture: null,
-    Survey_Status: Boolean,
-    Wound_Status: Boolean
+    Survey_taken: boolean,
+    Address: String,
+    Days: String,
     //will potentially add more detail down here
 }

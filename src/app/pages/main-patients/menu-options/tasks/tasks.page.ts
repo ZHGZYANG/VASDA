@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
 })
 export class TasksPage implements OnInit {
 
-  survey_taken = false;
-  upload_done = false;
+  user:any
 
   constructor(
     private userService: UserService,
@@ -18,5 +17,10 @@ export class TasksPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = JSON.parse(sessionStorage.getItem('user'))
+  }
+
+  surveyBtn(){
+    this.router.navigateByUrl('/main-patients/survey-page');
   }
 }

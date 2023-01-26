@@ -1,1 +1,0 @@
-__authors__ = "Kent Studer & Thadeus Meneses"

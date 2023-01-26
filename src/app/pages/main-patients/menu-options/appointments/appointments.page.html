@@ -1,16 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
-    <app-back-button></app-back-button>
+    <app-back-button slot="start"></app-back-button>
+    <ion-title class="ion-text-center" style="margin-right: 10%">
+      Appointments
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color = "light">
+<ion-content>
   <div id = "appbox" *ngFor="let appointment of appointments">
-    <h1>Date: {{appointment['Date']}} </h1>
+    <h1>Date: <strong>{{appointment['appointment_date']}}</strong></h1>
     
-    <p><strong>Location: </strong>{{appointment['Location']}} </p>
-    <p><strong>Doctor: </strong>{{appointment['Doctor']}}</p>
+    <p><strong>Location: </strong>{{appointment['appointment_location']}} </p>
+    <p><strong>Doctor: </strong>{{appointment['appointment_doctor']}}</p>
   </div>
 </ion-content>
 <app-tab-bar></app-tab-bar>

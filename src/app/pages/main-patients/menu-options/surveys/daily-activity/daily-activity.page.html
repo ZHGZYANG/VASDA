@@ -1,111 +1,111 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
     <app-back-button></app-back-button>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content id="content" [scrollEvents]="true">
   <h1 class="header">Tell us about your daily activity</h1>
   
   <h4 class="question">How much help do you need from another person: </h4>
 
-  
+  <div>
+    <div class="alert-div">
+      <div class="alert" *ngIf="alert">{{alert}}</div> 
+    </div>
+  </div>
   <div class="wrapper">
-    <form class="form" [formGroup]="dailyActivity" (ngSubmit)="onSubmit">
+    <form class="form" [formGroup]="ampac" (ngSubmit)="onSubmit">
       
       <div class="statementWrapper">
         <h4 class="question">Putting on and taking off regular lower body clothing</h4>
-        <input type="radio" name="changingLower" value="Unable" formControlName="changingLower">
+        <input type="radio" name="q1" value="1" formControlName="q1">
         <label>Unable</label>
         <br>  
-        <input type="radio" name="changingLower" value="A lot" formControlName="changingLower">
+        <input type="radio" name="q1" value="2" formControlName="q1">
         <label>A lot</label>
         <br>
-        <input type="radio" name="changingLower" value="A little" formControlName="changingLower">
+        <input type="radio" name="q1" value="3" formControlName="q1">
         <label>A little</label>
         <br>
-        <input type="radio" name="changingLower" value="None" formControlName="changingLower">
+        <input type="radio" name="q1" value="4" formControlName="q1">
         <label>None</label>  
       </div>
 
       <div class="statementWrapper">
         <h4 class="question">Bathing (including washing, rinsing, drying)?</h4>
-        <input type="radio" name="bathing" value="Unable" formControlName="bathing">
+        <input type="radio" name="q2" value="1" formControlName="q2">
         <label>Unable</label>
         <br>  
-        <input type="radio" name="bathing" value="A lot" formControlName="bathing">
+        <input type="radio" name="q2" value="2" formControlName="q2">
         <label>A lot</label>
         <br>
-        <input type="radio" name="bathing" value="A little" formControlName="bathing">
+        <input type="radio" name="q2" value="3" formControlName="q2">
         <label>A little</label>
         <br>
-        <input type="radio" name="bathing" value="None" formControlName="bathing">
+        <input type="radio" name="q2" value="4" formControlName="q2">
         <label>None</label>  
       </div>
 
       <div class="statementWrapper">
         <h4 class="question">Toileting, which includes using toilet, bedpan, or urinal?</h4>
-        <input type="radio" name="toileting" value="Unable" formControlName="toileting">
+        <input type="radio" name="q3" value="1" formControlName="q3">
         <label>Unable</label>
         <br>  
-        <input type="radio" name="toileting" value="A lot" formControlName="toileting">
+        <input type="radio" name="q3" value="2" formControlName="q3">
         <label>A lot</label>
         <br>
-        <input type="radio" name="toileting" value="A little" formControlName="toileting">
+        <input type="radio" name="q3" value="3" formControlName="q3">
         <label>A little</label>
         <br>
-        <input type="radio" name="toileting" value="None" formControlName="toileting">
+        <input type="radio" name="q3" value="4" formControlName="q3">
         <label>None</label>  
       </div>
 
       <div class="statementWrapper">
         <h4 class="question">Putting on and taking off regular upper body clothing?</h4>
-        <input type="radio" name="changingUpper" value="Unable" formControlName="changingUpper">
+        <input type="radio" name="q4" value="1" formControlName="q4">
         <label>Unable</label>
         <br>  
-        <input type="radio" name="changingUpper" value="A lot" formControlName="changingUpper">
+        <input type="radio" name="q4" value="2" formControlName="q4">
         <label>A lot</label>
         <br>
-        <input type="radio" name="changingUpper" value="A little" formControlName="changingUpper">
+        <input type="radio" name="q4" value="3" formControlName="q4">
         <label>A little</label>
         <br>
-        <input type="radio" name="changingUpper" value="None" formControlName="changingUpper">
+        <input type="radio" name="q4" value="4" formControlName="q4">
         <label>None</label>  
       </div>
 
       <div class="statementWrapper">
         <h4 class="question">Taking care of personal grooming such as brushing teeth?</h4>
-        <input type="radio" name="grooming" value="Unable" formControlName="grooming">
+        <input type="radio" name="q5" value="1" formControlName="q5">
         <label>Unable</label>
         <br>  
-        <input type="radio" name="grooming" value="A lot" formControlName="grooming">
+        <input type="radio" name="q5" value="2" formControlName="q5">
         <label>A lot</label>
         <br>
-        <input type="radio" name="grooming" value="A little" formControlName="grooming">
+        <input type="radio" name="q5" value="3" formControlName="q5">
         <label>A little</label>
         <br>
-        <input type="radio" name="grooming" value="None" formControlName="grooming">
+        <input type="radio" name="q5" value="4" formControlName="q5">
         <label>None</label>  
       </div>
 
       <div class="statementWrapper">
         <h4 class="question">Eating meals?</h4>
-        <input type="radio" name="eating" value="Unable" formControlName="eating">
+        <input type="radio" name="q6" value="1" formControlName="q6">
         <label>Unable</label>
         <br>  
-        <input type="radio" name="eating" value="A lot" formControlName="eating">
+        <input type="radio" name="q6" value="2" formControlName="q6">
         <label>A lot</label>
         <br>
-        <input type="radio" name="eating" value="A little" formControlName="eating">
+        <input type="radio" name="q6" value="3" formControlName="q6">
         <label>A little</label>
         <br>
-        <input type="radio" name="eating" value="None" formControlName="eating">
+        <input type="radio" name="q6" value="4" formControlName="q6">
         <label>None</label>  
       </div>
-      
-
     </form>
-
     <div class="buttons">
       <ion-button color="light" class="clear" (click)=clear()>Clear</ion-button>
       <ion-button class="submit" (click)=onSubmit()>Submit</ion-button>

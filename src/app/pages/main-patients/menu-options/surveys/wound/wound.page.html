@@ -1,111 +1,119 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
     <app-back-button></app-back-button>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <h1 class="header">Tell us how your surgical incision looks.</h1>
-  
-
-
-  
-  <div class="wrapper">
-    <form class="form" [formGroup]="wound" (ngSubmit)="onSubmit()">
-
-      <div class="statementWrapper">
-        <h4 class="question">1.	To me, the surgical incision site appears:</h4>
-        <input type="radio" name="appearance" value="same" formControlName="appearance">
-        <label>The same as yesterday</label>
-        <br>  
-        <input type="radio" name="appearance" value="better" formControlName="appearance">
-        <label>Better than yesterday</label>
-        <br>
-        <input type="radio" name="appearance" value="worse" formControlName="appearance">
-        <label>Worse than yesterday</label> 
+  <div id="wrapper">
+    <div>
+      <div class="alert-div">
+        <div class="alert" *ngIf="alert">{{alert}}</div> 
       </div>
-
-      <div class="statementWrapper">
-        <h4 class="question">2. Have you had fever or chills in the past 24 hours?</h4>
-        <input type="radio" name="fever" value="yes" formControlName="fever">
-        <label>Yes</label>
-        <br>  
-        <input type="radio" name="fever" value="no" formControlName="fever">
-        <label>No</label>
+    </div>
+    <h1 class="header">Tell us how your surgical incision looks.</h1>
+    <div class="wrapper">
+      <form class="form" [formGroup]="wound" (ngSubmit)="onSubmit()">
+        <div class="statementWrapper">
+          <h4 class="question">1.	To me, the surgical incision site appears:</h4>
+          <input type="radio" name="q1" value="1" formControlName="q1">
+          <label>The same as yesterday</label>
+          <br>  
+          <input type="radio" name="q1" value="2" formControlName="q1">
+          <label>Better than yesterday</label>
+          <br>
+          <input type="radio" name="q1" value="3" formControlName="q1">
+          <label>Worse than yesterday</label> 
+        </div>
+        <div class="statementWrapper">
+          <h4 class="question">2. Have you had fever or chills in the past 24 hours?</h4>
+          <input type="radio" name="q2" value="1" formControlName="q2">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q2" value="0" formControlName="q2">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper">
+          <h4 class="question">3. Has the area around your incision changed in the past 24 hours? </h4>
+          <input type="radio" name="q3" value="1" formControlName="q3">
+          <label>Yes, the color is redder</label>
+          <br>  
+          <input type="radio" name="q3" value="0" formControlName="q3">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper">
+          <h4 class="question">4. Does it look like red streaks are coming from the incision?</h4>
+          <input type="radio" name="q4" value="1" formControlName="q4">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q4" value="0" formControlName="q4">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper">
+          <h4 class="question">5. The swelling around the incision is:</h4>
+          <input type="radio" name="q5" value="1" formControlName="q5">
+          <label>The same as yesterday</label>
+          <br>  
+          <input type="radio" name="q5" value="2" formControlName="q5">
+          <label>Better than yesterday</label>
+          <br>
+          <input type="radio" name="q5" value="3" formControlName="q5">
+          <label>Worse than yesterday</label> 
+        </div>
+        <div class="statementWrapper">
+          <h4 class="question">6. Is there a bad smell coming from your incision?</h4>
+          <input type="radio" name="q6" value="1" formControlName="q6">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q6" value="0" formControlName="q6">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper">
+          <h4 class="question">7. Is fluid leaking from your incision?</h4>
+          <input type="radio" name="q7" value="1" formControlName="q7">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q7" value="0" formControlName="q7">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper" *ngIf="wound.get('q7').value==1">
+          <h4 class="question">If yes, is the fluid clear?</h4>
+          <input type="radio" name="q7pt1" value="1" formControlName="q7pt1">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q7pt1" value="0" formControlName="q7pt1">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper" *ngIf="wound.get('q7').value==1">
+          <h4 class="question"> If yes, is the fluid white, yellow, or green?</h4>
+          <input type="radio" name="q7pt2" value="1" formControlName="q7pt2">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q7pt2" value="0" formControlName="q7pt2">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper" *ngIf="wound.get('q7').value==1">
+          <h4 class="question">If yes, do you change your dressing more than once a day because fluid soaks through?</h4>
+          <input type="radio" name="q7pt3" value="1" formControlName="q7pt3">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q7pt3" value="0" formControlName="q7pt3">
+          <label>No</label>
+        </div>
+        <div class="statementWrapper">
+          <h4 class="question">8. Has your incision pain increased in the last 24 hours?</h4>
+          <input type="radio" name="q8" value="1" formControlName="q8">
+          <label>Yes</label>
+          <br>  
+          <input type="radio" name="q8" value="0" formControlName="q8">
+          <label>No</label>
+        </div>
+      </form>
+      <div class="buttons">
+        <ion-button color="light" class="clear" (click)=clear()>Clear</ion-button>
+        <ion-button class="submit" (click)=onSubmit()>Submit</ion-button>
       </div>
-
-      <div class="statementWrapper">
-        <h4 class="question">3. Has the area around your incision changed in the past 24 hours? </h4>
-        <input type="radio" name="color" value="yes" formControlName="color">
-        <label>Yes, the color is redder</label>
-        <br>  
-        <input type="radio" name="color" value="no" formControlName="color">
-        <label>No</label>
-      </div>
-
-      <div class="statementWrapper">
-        <h4 class="question">4. Does it look like red streaks are coming from the incision?</h4>
-        <input type="radio" name="streaks" value="yes" formControlName="streaks">
-        <label>Yes</label>
-        <br>  
-        <input type="radio" name="streaks" value="no" formControlName="streaks">
-        <label>No</label>
-      </div>
-
-      
-      <div class="statementWrapper">
-        <h4 class="question">5. The swelling around the incision is:</h4>
-        <input type="radio" name="swelling" value="same" formControlName="swelling">
-        <label>The same as yesterday</label>
-        <br>  
-        <input type="radio" name="swelling" value="better" formControlName="swelling">
-        <label>Better than yesterday</label>
-        <br>
-        <input type="radio" name="swelling" value="worse" formControlName="swelling">
-        <label>Worse than yesterday</label> 
-      </div>
-
-      <div class="statementWrapper">
-        <h4 class="question">6. Is there a bad smell coming from your incision?</h4>
-        <input type="radio" name="smell" value="yes" formControlName="smell">
-        <label>Yes</label>
-        <br>  
-        <input type="radio" name="smell" value="no" formControlName="smell">
-        <label>No</label>
-      </div>
-
-      <div class="statementWrapper">
-        <h4 class="question">7. Is fluid leaking from your incision?</h4>
-        <input type="radio" name="leaking" value="yes" formControlName="leaking">
-        <label>Yes</label>
-        <br>  
-        <input type="radio" name="leaking" value="no" formControlName="leaking">
-        <label>No</label>
-      </div>
-
-      
-      <div class="statementWrapper">
-        <h4 class="question">8. Has your incision pain increased in the last 24 hours?</h4>
-        <input type="radio" name="pain" value="yes" formControlName="pain">
-        <label>Yes</label>
-        <br>  
-        <input type="radio" name="pain" value="no" formControlName="pain">
-        <label>No</label>
-      </div>
-
-
-
-
-    </form>
-
-    <div class="buttons">
-      <ion-button color="light" class="clear" (click)=clear()>Clear</ion-button>
-      <ion-button class="submit" (click)=onSubmit()>Submit</ion-button>
     </div>
   </div>
-
-
-
 </ion-content>
 
 <app-tab-bar></app-tab-bar>

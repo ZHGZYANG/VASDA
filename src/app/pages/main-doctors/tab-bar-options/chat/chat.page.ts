@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
 import { IonContent, MenuController } from '@ionic/angular';
+import { DoctorServiceService } from 'src/app/service/doctor-service.service';
 
 
 @Component({
@@ -11,74 +12,102 @@ import { IonContent, MenuController } from '@ionic/angular';
 })
 export class ChatPage implements OnInit {
   
-  currentUser = "Select a Patient"
-  user = JSON.parse(localStorage.getItem('user'))
+  selectedPatient = "Select a Patient"
   patients:Object[]
+
+  currentUser:String
+
+  allMessages:Object[]
+  selectedMessages:Object[]
   patient:any
   newMsg = ''
 
+  username:String
 
   @ViewChild(IonContent) content: IonContent
 
-  messages = [
-  ]
+  messages = []
   constructor(
     private router:Router,
     private userService:UserService,
-    private menu:MenuController
+    private menu:MenuController,
+    private doctorService:DoctorServiceService
   ) { }
 
   ngOnInit() {
-    this.getPatients()
+    var User = JSON.parse(sessionStorage.getItem('user'))
+    this.username = User["doctor_name"]
+
+    this.currentUser = "Dr. Vogel"
+
+    this.doctorService.getPatients(User['d_id']).subscribe(
+      (response) => {
+        this.patients = response
+        console.log(this.patients)
+    
+      },
+      (error: any) => {
+        console.log(error)
+      }
+    )
+
+    this.doctorService.getMessages().subscribe(
+      (response)=>{
+        this.allMessages = response
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
   }
 
   selectUser = function(patient:any){
+    console.log(this.allMessages)
     this.patient=patient
-    this.currentUser=patient['fName'] + " " + patient['lName']
-    this.getMessages(this.patient['pID'])
-  }
-  sendMsg(){
-    const message = {
-      pID:this.patient['pID'],
-      dID:this.patient['dID'],
-      createdAt: new Date().getTime(),
-      message: this.newMsg
+    console.log(this.patient)
+    this.selectedPatient=patient['patient_name']
+
+    this.selectedMessages = []
+    for (let i = 0; i<this.allMessages.length;i++){
+      
+      if((this.allMessages[i]['chat_receiver']=="Dr. Vogel" && this.allMessages[i]['chat_sender']==patient['patient_username']) || (this.allMessages[i]['chat_receiver']==patient['patient_username'] && this.allMessages[i]['chat_sender']=="Dr. Vogel") ){
+        this.selectedMessages.push(this.allMessages[i])
+      }
     }
-
-    this.messages.push(message)
+    console.log(this.selectedMessages)
+  }
+  sendMsg():void{
+    const time = new Date()
+    const message = {
+      chat_sender: "Dr. Vogel",
+      chat_receiver: this.patient['patient_username'],
+      chat_message: this.newMsg,
+      chat_sent_date: time.toLocaleString()
+    }
     
-    this.sendMessage(message)
+    this.selectedMessages.push(message)
+    this.newMsg=''
 
-    this.newMsg =''
     setTimeout(() =>{
       this.content.scrollToBottom(200)
     });
-    
+
+    this.doctorService.sendMessages(message).subscribe(
+      (response)=>{
+        console.log(response)
+      },
+      (error)=>{
+        console.log(error)
+      }
+    )
+
   }
   closeAccordions() {
     const stateAccordion = document.querySelector('#state');
     stateAccordion['value'] = undefined;
   }
 
-  getPatients():void{
-    this.userService.getPatients(this.user).subscribe(
-      (response) => this.patients=response['Patients'],
-      (error:any) => console.log(error),
-    );
-  }
 
-  getMessages(patient:any):void{
-    this.userService.getMessages(patient).subscribe(
-      (response)=> this.messages=response['Messages'],
-      (error:any) => console.log(error),
-    );
-  }
 
-  sendMessage(message:any):void{
-    this.userService.sendMessage(message).subscribe(
-      (response)=> console.log("success"),
-      (error:any) => console.log(error),
-    );
-  }
 
 }

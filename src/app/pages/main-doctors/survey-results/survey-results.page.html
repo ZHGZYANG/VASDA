@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+
+    <app-back-button></app-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="titleDiv">
+    <h1>Survey Results For {{patientName}}</h1>
+  </div>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Presurgery</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ampac_q1_pss</td>
+        <td>{{patient['ampac'][0]['question_1']}}</td>
+      </tr>
+      <tr>
+        <td>ampac_q2_pss</td>
+        <td>{{patient['ampac'][0]['question_2']}}</td>
+      </tr>
+      <tr>
+        <td>ampac_q3_pss</td>
+        <td>{{patient['ampac'][0]['question_3']}}</td>
+      </tr>
+      <tr>
+        <td>ampac_q4_pss</td>
+        <td>{{patient['ampac'][0]['question_4']}}</td>
+      </tr>
+      <tr>
+        <td>ampac_q5_pss</td>
+        <td>{{patient['ampac'][0]['question_5']}}</td>
+      </tr>
+      <tr>
+        <td>ampac_q6_pss</td>
+        <td>{{patient['ampac'][0]['question_6']}}</td>
+      </tr>
+      <tr>
+        <td>peg_q1_pss</td>
+        <td>{{patient['peg'][0]['question_1']}}</td>
+      </tr>
+      <tr>
+        <td>peg_q2_pss</td>
+        <td>{{patient['peg'][0]['question_2']}}</td>
+      </tr>
+      <tr>
+        <td>peg_q3_pss</td>
+        <td>{{patient['peg'][0]['question_3']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q1_pss</td>
+        <td>{{patient['q_score'][0]['question_1']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q2_pss</td>
+        <td>{{patient['q_score'][0]['question_2']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q3_pss</td>
+        <td>{{patient['q_score'][0]['question_3']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q4_pss</td>
+        <td>{{patient['q_score'][0]['question_4']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q5_pss</td>
+        <td>{{patient['q_score'][0]['question_5']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q6_pss</td>
+        <td>{{patient['q_score'][0]['question_6']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q7_pss</td>
+        <td>{{patient['q_score'][0]['question_7']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q8_pss</td>
+        <td>{{patient['q_score'][0]['question_8']}}</td>
+      </tr>
+      <tr>
+        <td>phq_q9_pss</td>
+        <td>{{patient['q_score'][0]['question_9']}}</td>
+      </tr>
+
+      <!-- and so on... -->
+    </tbody>
+  </table>
+
+</ion-content>
+<app-tab-bar></app-tab-bar>

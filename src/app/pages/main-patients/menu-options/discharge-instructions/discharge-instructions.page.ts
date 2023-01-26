@@ -10,8 +10,10 @@ export class DischargeInstructionsPage implements OnInit {
 
   constructor() { }
 
-  instruction = JSON.parse(sessionStorage.getItem('instruction'))
+  user:any
 
   ngOnInit() {
+    this.user = JSON.parse(sessionStorage.getItem('user'))
+    console.log(this.user)
   }
 }

@@ -1,0 +1,28 @@
+#imgcontainer{
+    position: relative;
+    top: 10%;
+    margin: auto;
+    width: fit-content;
+    z-index: 1;
+}
+
+
+
+#uploadcontainer{
+    margin: auto;
+    width: 70%;
+    z-index: 1;
+    position: relative;
+    top: 25%;
+}
+ion-button {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: larger;
+}
+ion-title img{
+    transform: scale(.1);
+}
+ion-content{
+      text-align: center;
+      margin: 2%;
+  }

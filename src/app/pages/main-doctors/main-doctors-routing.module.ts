@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'view-pics',
     loadChildren: () => import('./tab-bar-options/view-pics/view-pics.module').then( m => m.ViewPicsPageModule)
   },
+  {
+    path: 'survey-results',
+    loadChildren: () => import('./survey-results/survey-results.module').then( m => m.SurveyResultsPageModule)
+  },
   
 ];
 

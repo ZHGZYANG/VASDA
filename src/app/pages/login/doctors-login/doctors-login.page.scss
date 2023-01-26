@@ -1,4 +1,6 @@
-
+ion-content {
+  --ion-background-color: white;
+}
 h1{
   font-size: 200%;
   margin: auto;
@@ -7,7 +9,6 @@ h1{
 #outter-form{
   width: fit-content;
   margin: auto;
-  margin-top: 50px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -20,11 +21,17 @@ ion-item{
   margin-left: 17px;
   border: .5px solid rgba(0, 0, 0, 0.055);
 }
+ion-input {
+  height: 70px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
 
 #options {
-  width: 400px;
-  margin-top: 25px;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
 }
 .alert {
   width: fit-content;

@@ -9,6 +9,11 @@ import { MainDoctorsPageRoutingModule } from './main-doctors-routing.module';
 import { MainDoctorsPage } from './main-doctors.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table'  
+
+
 
 @NgModule({
   imports: [
@@ -16,7 +21,11 @@ import { ComponentsModule } from 'src/app/components/components.module';
     FormsModule,
     IonicModule,
     MainDoctorsPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    MatNativeDateModule,
+    MatIconModule,
+    MatTableModule
+    
   ],
   declarations: [MainDoctorsPage]
 })

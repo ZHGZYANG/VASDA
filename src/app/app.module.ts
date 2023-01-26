@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AutosizeModule } from 'ngx-autosize';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -24,7 +25,8 @@ import { AutosizeModule } from 'ngx-autosize';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    AutosizeModule
+    AutosizeModule,
+    BrowserAnimationsModule
     ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

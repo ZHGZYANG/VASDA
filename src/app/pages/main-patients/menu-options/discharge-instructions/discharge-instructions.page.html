@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
-    <app-back-button></app-back-button>
+    <app-back-button slot="start"></app-back-button>
+    <ion-title class="ion-text-center" style="margin-right: 10%">
+      Discharge Instructions
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light">
-  <p>{{instruction}}</p>
+<ion-content>
+  <p *ngIf="!this.user['patient_discharge_instructions']">take all meds</p>
+  <p *ngIf="this.user['patient_discharge_instructions']">{{this.user['patient_discharge_instructions']}}</p>
 </ion-content>
 <app-tab-bar></app-tab-bar>
 

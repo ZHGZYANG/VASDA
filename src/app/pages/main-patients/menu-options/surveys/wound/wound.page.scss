@@ -1,5 +1,10 @@
+
 ion-content{
     text-align: center;
+    margin: 2%;
+}
+#header {
+    margin-bottom: 5%;
 }
 img{
     transform: scale(.1);
@@ -19,5 +24,26 @@ input{
 .buttons ion-button{
     margin: 5%;
     width: 25%;
-  
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
+}
+.wrapper {
+    color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: -2%;
+}
+label {
+    font-size: large;
+}
+.alert-div {
+    padding: 1%;
+  }
+  .alert {
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 2%;
+    padding: 5%;
+    text-align: center;
   }

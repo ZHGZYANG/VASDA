@@ -14,36 +14,49 @@
     padding: 0;
 }
 
-.message-input{
-    width: 100%;
-    border: 1px solid black;
-    border-radius: 10px;
-    resize:none;
-    padding-left: 10px;
-    padding-right: 10px;
-}
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 
-.msg-btn{
-    --padding-start: 0.5em;
-    --padding-end: 0.5em;
-}
+    height: 100%;
+    overflow: auto;
 
-#inbox{
-    margin-top: 15px; 
 }
 
 .message{
-
-    margin-left: 10px;
-    padding:10px;
+    padding: 10px;
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     white-space: pre-wrap;
-    background-color: rgba(255, 255, 255, 0.616);
-    
+
 }
 
-#tail{
+.other-message{
+    background: rgba(101, 141, 240, 0.716);
+
+}
+
+.my-message{
+    background-color: rgba(220, 207, 207, 0.716);
+}
+
+.time{
+    float: right;
+}
+
+
+.tail-mymsg{
+    position: absolute;
+    right: -15px;
+    top: 40px;
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    white-space: pre-wrap;
+    background-color: rgb(0, 0, 0);
+}
+.tail-othermsg{
     position: absolute;
     left: -15px;
     top: 40px;
@@ -54,7 +67,27 @@
     background-color: rgb(0, 0, 0);
 }
 
-.time{
-    position:relative;
-    left: 200px;
+
+.message-input{
+    width:100%;
+    border: 1px solid var(--ion-color-medium);
+    border-radius:10px;
+    background: #fff;
+    resize: none;
+    padding-left:10px;
+    padding-right:10px
+}
+
+.msg-btn{
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+}
+b {
+    color: black;
+}
+span {
+    color: black;
+}
+textarea {
+    margin-top: 5px;
 }

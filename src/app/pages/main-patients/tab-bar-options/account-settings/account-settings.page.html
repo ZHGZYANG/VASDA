@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title slot="primary">Settings</ion-title>
+    <app-back-button slot="start"></app-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="container">
+    <h1>Change Password</h1>
+    <form id="form">
+      <ion-list id="inputs">
+        <ion-item>
+          <ion-label>
+            <ion-icon name="key"></ion-icon>
+          </ion-label>
+          <app-show-hide>
+            <ion-input id="new-password" placeholder="New Password" type="text" class="form-control" ></ion-input>
+          </app-show-hide>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>

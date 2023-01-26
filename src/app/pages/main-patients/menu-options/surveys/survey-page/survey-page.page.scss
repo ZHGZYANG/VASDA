@@ -1,5 +1,6 @@
 ion-content{
     text-align: center;
+    margin: 2%;
 }
 ion-title img{
   transform: scale(.1);
@@ -8,31 +9,58 @@ h1{
     font-size:20pt;
     padding: 10pt;
     font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 .container {
-    margin: auto;
+    margin: 2%;
     width: 100%;
     display: grid;
     grid-template-columns: 34% 33% 33%;
     grid-template-rows: 50% 50%;
     background-color: rgba(253, 253, 253, 0.758);;
-    position: absolute;
-    top: 15%;
+    position: relative;
     height: 55%;
-    
-  }
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .cell {
   aspect-ratio: 1;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  font-size: 100pt;
+  font-size: 90pt;
 }
+.survey-label {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: larger;
+}
+
   
-ion-button {
+.surveyBtn{
   margin: 0;
   width: 100%;
   height: 100%;
   --color: black;
-  font-size: 10%
+  font-size: 10%;
+  padding-top: 2%;
+}
+.submitBtn{
+  z-index: 1;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+}
+ion-toolbar {
+  display: flex;
+}
+.alert-div {
+  padding: 1%;
+}
+.alert {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 5%;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }

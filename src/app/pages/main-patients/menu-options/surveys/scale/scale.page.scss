@@ -1,16 +1,24 @@
+
+ion-content{
+    text-align: center;
+    margin: 2%;
+}
 .wrap{
   text-align: center;
-
+  padding: 7%;
+  color: black;
 }
 img{
   transform: scale(.1);
 }
 .likert{
   list-style: none;
-  margin: auto;
+  display: inline-block;
+  white-space: nowrap;
   width: 100%;
   padding: 0;
   text-align: center;
+  margin-left: -16%;
 }
 
 .likert-header{
@@ -67,6 +75,30 @@ li input[type=radio]:checked{
 .buttons ion-button{
   margin: 5%;
   width: 25%;
-
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+label {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+span {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.statement {
+  font-size: larger;
+}
+.alert-div {
+  padding: 1%;
+}
+.alert {
+  color: #ba3939;
+  background: #ffe0e0;
+  border: 1px solid #a33a3a;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 2%;
+  padding: 5%;
+  text-align: center;
 }
 

@@ -1,21 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><img src="./assets/icon/VASDA_Icon.png"></ion-title>
-    <app-back-button></app-back-button>
+    <app-back-button slot="start"></app-back-button>
+    <ion-title class="ion-text-center" style="margin-right: 10%">
+      Tasks
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color = "light">
-  <div id="survey-task" *ngIf="!survey_taken">
+<ion-content>
+  <div id="survey-task" *ngIf="this.user['patient_survey_taken']=='0'">
     <ion-item>
-      <ion-label>Take daily survey</ion-label>
+      <ion-label>Take daily surveys</ion-label>
       <ion-button size="default" (click) ='surveyBtn()'>go</ion-button>
     </ion-item>
   </div>
-  <div id="upload-task" *ngIf="!upload_done">
+  <div id="survey-task" *ngIf="this.user['patient_survey_taken']=='1'">
     <ion-item>
-      <ion-label>Upload picture of wound</ion-label>
-      <ion-button size="default" (click) ='uploadBtn()'>upload</ion-button>
+      <ion-label>All done for today!</ion-label>
     </ion-item>
   </div>
 </ion-content>

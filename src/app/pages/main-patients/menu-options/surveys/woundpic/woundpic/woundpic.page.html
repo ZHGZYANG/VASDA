@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <app-back-button></app-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id = "imgcontainer">
+    <img src={{url}} onerror="this.src = './assets/icon/defaultpic.png'" id="pic">
+  </div>
+  <div id="uploadcontainer">
+    <input #fileInput style="display: none;" type="file" (change)=selectFile($event) #input>
+    <ion-button expand="block" id = "uploadBtn" (click)=fileInput.click()>Upload</ion-button>
+    <ion-label id="msg">{{msg}}</ion-label>
+    <ion-label id="msg">{{uploadStatus}}</ion-label>
+  </div>
+</ion-content>
+<app-tab-bar></app-tab-bar>

@@ -4,6 +4,10 @@
 ion-header{
     height: 5%;
     text-align: center;
+    /*background-color: black;*/
+}
+ion-title {
+    /*color: white;*/
 }
 ion-toolbar, ion-title{
     height: 65%;
@@ -20,7 +24,8 @@ ion-content{
     padding:15px;
 }
 p {
-    font-size:20pt;
-    padding: 10pt;
-    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 32px;
+    padding: 3%;
+    color: black;
 }

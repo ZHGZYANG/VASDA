@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/service/user.service';
+import { DoctorServiceService } from 'src/app/service/doctor-service.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Doctor } from 'src/app/interface/doctor';
 
@@ -27,7 +27,7 @@ export class DoctorsLoginPage implements OnInit {
 
   constructor(
     private router: Router, 
-    private userService: UserService,
+    private doctorService:DoctorServiceService,
     private formBuilder: FormBuilder
     ) {
     }
@@ -46,53 +46,40 @@ export class DoctorsLoginPage implements OnInit {
   btnLogin = function(){
 
     this.submitted = true;
+    
+    this.doctorService.verifyUser(this.username.value, this.password.value).subscribe(
+      (response) => {
+        for(var k of response){
+          console.log(k)
+           if(this.username.value==k['doctor_username'] && this.password.value==k['doctor_password']){
 
-    
-    var doctor: Doctor = {
-      D_id: undefined,
-      Username: this.username.value,
-      Password: this.password.value,
-      FName: undefined,
-      LName: undefined,
-      Email: undefined,
-      Profile_Picture: undefined,
-      Patient_Array: undefined
-    }
-    
-    this.userService.verifyUser(doctor).subscribe(
-      (response: { [x: string]: number; }) => {
-        if(response['HTTP STATUS'] == 201 && response['USER']['D_id']){
+            this.isAuthenticated = true;
+            this.submitted = false;
+
+
+             //storing recordid_pss and recap_event_name to make changes to the user on Redcap simply by passing in the entire object
+            k['redcap_event_name'] = 'patients_arm_2'
+
+            sessionStorage.setItem('user', JSON.stringify(k));  
   
-          this.isAuthenticated = true;
-          this.submitted = false;
-  
-          doctor.D_id = response['USER']['D_id'];
-          doctor.FName = response['USER']['FName'];            
-          doctor.LName = response['USER']['LName'];
-          doctor.Email = response['USER']['Email'];
-          doctor.Profile_Picture = response['USER']['Profile_Picture'];
-          doctor.Patient_Array = response['USER']['Patient_Array']
-  
-          sessionStorage.setItem('user', JSON.stringify(doctor));
-  
-          (<HTMLInputElement>document.getElementById("username")).value = '';
-          (<HTMLInputElement>document.getElementById("password")).value = '';
-          this.alert = "";
-              
-          this.router.navigateByUrl('main-doctors');
-        } 
-        else
-        {
-          this.isAuthenticated = false;
-          this.alert = "Invalid username or password.";
-          (<HTMLInputElement>document.getElementById("password")).value = '';
-  
-          return;
+            (<HTMLInputElement>document.getElementById("username")).value = '';
+            (<HTMLInputElement>document.getElementById("password")).value = '';
+            this.alert = "";
+                
+            this.router.navigateByUrl('main-doctors');
+          } 
         }
+
+        
+        this.isAuthenticated = false;
+        this.alert = "Invalid username or password.";
+        (<HTMLInputElement>document.getElementById("password")).value = '';
+  
+        
       },
       (error: any) => {
         this.alert = "An unexpected error has occured."
-        this.router.navigateByUrl('login');
+        this.router.navigateByUrl('doctors-login');
       }
     )
   }

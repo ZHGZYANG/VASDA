@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <app-back-button slot="start"></app-back-button>
+    <ion-title class="ion-text-center" style="margin-right: 10%">
+      Profile
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="wrapper">
+    <div id="profile_picture">
+      <img src="./assets/icon/default-pic.png" alt="">
+      <h1 id="name_text">{{full_name}}</h1>
+    </div>
+    <div id="user_stats">
+      <h1 class="stat">12<br>Days Since Surgery</h1>
+      <h1 class="stat">10<br>Days Before Next Checkup</h1>
+    </div>
+    <div id="user_info">
+      <div class="info_box">
+        <h1 class="information_header">Date of Birth:</h1>
+        <h1 class="information_data">{{dob}}</h1>
+      </div>
+      <div class="info_box">
+        <h1 class="information_header">Current Address:</h1>
+        <h1 class="information_data" id="address">{{address}}</h1>
+      </div>
+      <div class="info_box">
+        <h1 class="information_header">Email:</h1>
+        <h1 class="information_data">{{email}}</h1>
+      </div>
+      <div class="info_box">
+        <h1 class="information_header">Date of Surgery:</h1>
+        <h1 class="information_data">{{surgery_date}}</h1>
+      </div>
+    </div>
+    <div id="button_box">
+      <ion-button id="setting" (click) = 'settingBtn()'>Account Settings</ion-button>
+      <ion-button id="logout" (click) ='logoutBtn()'>Logout</ion-button>
+    </div>
+    
+  </div>
+</ion-content>
+<app-tab-bar></app-tab-bar>

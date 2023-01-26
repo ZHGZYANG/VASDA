@@ -40,6 +40,11 @@ const routes: Routes = [
     path: 'home-health',
     loadChildren: () => import('./pages/main-patients/menu-options/home-health/home-health.module').then( m => m.HomeHealthPageModule)
   },
+  {
+    path: 'account-settings',
+    loadChildren: () => import('./pages/main-patients/tab-bar-options/account-settings/account-settings.module').then( m => m.AccountSettingsPageModule)
+  }
+
 
 ];
 

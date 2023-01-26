@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-daily-activity',
@@ -8,26 +10,43 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class DailyActivityPage implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+  arm:any
+  valid:boolean
+  alert = ''
+  @ViewChild(IonContent, {static: false}) content: IonContent
+
+  constructor(
+    private router: Router,
+  ) { }
+
+  ngOnInit() { 
+    this.arm=JSON.parse(sessionStorage.getItem('arm'))
   }
 
-  dailyActivity = new FormGroup({
-    changingLower: new FormControl(''),
-    bathing:new FormControl(''),
-    toileting:new FormControl(''),
-    changingUpper:new FormControl(''),
-    grooming:new FormControl(''),
-    eating:new FormControl('')
+  ampac = new FormGroup({
+    q1:new FormControl('', Validators.required),
+    q2:new FormControl('', Validators.required),
+    q3:new FormControl('', Validators.required),
+    q4:new FormControl('', Validators.required),
+    q5:new FormControl('', Validators.required),
+    q6:new FormControl('', Validators.required)
   })
 
   clear = function(){
-    this.dailyActivity.reset()
+    this.ampac.reset()
   };
 
   onSubmit(): void{
-    console.log(this.dailyActivity.value)
-    this.clear()
+    if (this.ampac.invalid){
+      this.clear()
+      this.alert = "Please answer every question before submitting"
+      this.content.scrollToTop(1500);
+    }else{
+
+      sessionStorage.setItem('ampac',JSON.stringify(this.ampac.value))
+      this.clear()
+      this.router.navigateByUrl('main-patients/survey-page')
+    }
   }
 }

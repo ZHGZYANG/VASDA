@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChildActivationStart, Router } from '@angular/router';
-import { FormGroup,FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup,FormBuilder, FormControl, Validators } from '@angular/forms';
+import { IonContent } from '@ionic/angular';
+
 
 
 @Component({
@@ -20,17 +22,29 @@ export class ScalePage implements OnInit {
   }
 
   peg = new FormGroup({
-    pain: new FormControl(''),
-    enjoyment: new FormControl(''),
-    general: new FormControl('')
+    q1: new FormControl('', Validators.required),
+    q2: new FormControl('', Validators.required),
+    q3: new FormControl('', Validators.required)
   })
+  alert = ''
+
+  @ViewChild(IonContent, {static: false}) content: IonContent
 
   clear = function(){
     this.peg.reset()
+    
   };
 
   onSubmit(): void{
-    console.log(this.peg.value)
-    this.clear()
+  
+    if (this.peg.invalid){
+      this.clear()
+      this.alert = "Please answer every question before submitting"
+      this.content.scrollToTop(1500);
+    }else{
+      sessionStorage.setItem('peg',JSON.stringify(this.peg.value))
+      this.clear()
+      this.router.navigateByUrl('main-patients/survey-page')
+    }
   }
 }
